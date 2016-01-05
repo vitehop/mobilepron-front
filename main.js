@@ -12,27 +12,14 @@ $(document).ready(function() {
 
       success: function( data ) {
           var view = [];
-          //var table = [];
-          //console.log("data received!: "+data.length+" items");
-          //var data = JSON.parse(json);
-          //console.log(data);
+          var table = [];
           data.forEach(function(video,i){
-            //console.log("Days online for video "+video.title+": "+video.daysOnline);
-            //video.thumb="http://www.revistacomotu.com/wp-content/uploads/2015/11/del-reves-revistacomotu-400x225.jpg";
             view.push("<div class='grid-item'><a href=" + video.url + "><img src=" + video.thumb + "></a></div>");
-            //table.push("<tr><td>"+i+"</td><td>"+video.title+"</td><td>"+video.views+"</td><td>"+video.publish_date+"</td><td>"+video.source+"</td><td>"+video.daysOnline+"</td><td>"+video.viewsPerDay+"</td>");
-
-          //  console.log("Publish date: "+video.publishDate+" | Today date: "+todayDate+" | Diff: "+diffDays+" days");
+            table.push("<tr><td>"+i+": "+video.source+"</td><td>"+video.title+"</td><td>"+video.views+" views</td><td>"+video.daysOnline+" days online</td><td>"+video.viewsPerDay+" Views Per Day</td><td>"+video.magicRank+" MagicRank<td>");
           });
-          //$("<table>", {"class":"datatable", html: table.join("") }).appendTo("body");
-
+          $("<table>", {"class":"datatable", html: table.join("") }).appendTo("body");
           $( "<div>", { "class": "grid", html: view.join("") }).appendTo( "body" );
 
-          // $('.grid').masonry({
-          //   // options
-          //   itemSelector: '.grid-item',
-          //   columnWidth: 400
-          // });
 
       },
 
